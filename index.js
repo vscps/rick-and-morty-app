@@ -81,3 +81,5 @@ const { results: episodes } = await fetchCharacters(
 //console.log(characters, locations, episodes);
 
 pagination.innerHTML = page + "/" + maxPage;
+
+console.log();

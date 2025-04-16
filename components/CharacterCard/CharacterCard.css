@@ -1,14 +1,38 @@
 .card-container {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .card {
   width: 300px;
   background-color: var(--color-secondary);
+  border: 2px solid #6f826a;
+  margin: 25px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 5px 5px #6f826a;
+  cursor: pointer;
+  background-color: #bbd8a3;
+  color: #6f826a;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+.card__image {
+  height: 300px;
 }
 
 .card__info {
   display: grid;
   grid-template-columns: auto 1fr;
+}
+
+.card__title {
 }
 .card__content {
   padding: 10px 20px 20px;

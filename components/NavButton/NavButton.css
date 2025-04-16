@@ -1,5 +1,7 @@
 .button {
   border: none;
+  cursor: pointer;
+  background-color: #bf9264;
 }
 
 .button:hover {

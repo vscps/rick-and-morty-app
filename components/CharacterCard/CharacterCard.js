@@ -1,6 +1,5 @@
 export function createCharacterCard(character) {
   const characterName = character["name"];
-  console.log(characterName);
   const characterImage = character["image"];
   const characterStatus = character["status"];
   const characterType = character["type"];

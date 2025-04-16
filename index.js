@@ -29,15 +29,6 @@ async function fetchCharacters(url) {
   }
 
   cardContainer.innerHTML = characterList;
-  if (characters.length == 0 && searchBar.query.value.length > 0) {
-    message.innerHTML = "Your search did not return any results.";
-  } else if (searchBar.query.value.length > 0) {
-    message.innerHTML =
-      "Your search returned " + characters.length + " result(s).";
-  } else {
-    message.innerHTML = "";
-  }
-
   return data;
 }
 

@@ -15,27 +15,35 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-
-const card = createCharacterCard();
-cardContainer.innerHTML = card;
-
-async function fetchData(url) {
+async function fetchCharacters(url) {
   //fetch data from API
   const response = await fetch(url); //returns promise
   const data = await response.json(); //take response and convert it from json to object
+  const { results: characters } = data; // characters contains an array[] of objects {} where each object is ONE character with properties (key, value...) from the TV series
+  console.log(characters);
+
+  let characterList = "";
+
+  for (const character of characters) {
+    const card = createCharacterCard(character);
+    characterList = characterList + card;
+  }
+
+  cardContainer.innerHTML = characterList;
+
   return data;
 }
 
 //fetching object and saving key results only in a new variable
-const { results: characters } = await fetchData(
+const { results: characters } = await fetchCharacters(
   "https://rickandmortyapi.com/api/character"
 );
-const { results: locations } = await fetchData(
+
+/*const { results: locations } = await fetchCharacters(
   "https://rickandmortyapi.com/api/location"
 );
-const { results: episodes } = await fetchData(
+const { results: episodes } = await fetchCharacters(
   "https://rickandmortyapi.com/api/episode"
-);
+); */
 
-console.log(characters, locations, episodes);
-
+//console.log(characters, locations, episodes);

@@ -9,7 +9,7 @@ const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
-
+const message = document.querySelector('[data-js="message"]');
 // States
 let maxPage = 1;
 let page = 1;
@@ -29,6 +29,14 @@ async function fetchCharacters(url) {
   }
 
   cardContainer.innerHTML = characterList;
+  if (characters.length == 0 && searchBar.query.value.length > 0) {
+    message.innerHTML = "Your search did not return any results.";
+  } else if (searchBar.query.value.length > 0) {
+    message.innerHTML =
+      "Your search returned " + characters.length + " result(s).";
+  } else {
+    message.innerHTML = "";
+  }
 
   return data;
 }

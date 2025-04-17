@@ -34,12 +34,12 @@ async function fetchCharacters(url) {
 
 searchBar.addEventListener("submit", async (event) => {
   event.preventDefault();
+  page = 1;
   searchQuery = searchBar.query.value;
   console.log(searchQuery);
   const { results: characters } = await fetchCharacters(
     `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`
   );
-  page = 1;
   pagination.innerHTML = page + "/" + maxPage;
 });
 
